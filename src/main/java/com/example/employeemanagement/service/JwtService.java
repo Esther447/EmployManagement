@@ -38,8 +38,7 @@ public class JwtService {
     }
 
     public String generateToken(Map<String, Object> extraClaims, String username) {
-        return Jwts
-                .builder()
+        return Jwts.builder()
                 .setClaims(extraClaims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -62,8 +61,7 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts
-                .parserBuilder()
+        return Jwts.parserBuilder()
                 .setSigningKey(getSignInKey())
                 .build()
                 .parseClaimsJws(token)

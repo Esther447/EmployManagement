@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   datasource:
@@ -19,7 +19,7 @@ spring:
 
 app:
   jwt:
-    secret: "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437"
+    secret: "c2VjdXJlLXNlY3JldC1rZXktdGhhdC1zaG91bGQtYmUtMzJieXRlcw=="
     expiration: 86400000
 springdoc:
   api-docs:

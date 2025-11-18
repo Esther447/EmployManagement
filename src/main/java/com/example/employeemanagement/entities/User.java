@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import javax.management.relation.Role;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -57,3 +58,4 @@ public class User {
         ROLE_USER, ROLE_ADMIN
     }
 }
+//user

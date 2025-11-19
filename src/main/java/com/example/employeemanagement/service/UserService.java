@@ -1,4 +1,4 @@
-package com.example.employeemanagement.serivce;
+package com.example.employeemanagement.service;
 
 
 import com.example.employeemanagement.entities.User;

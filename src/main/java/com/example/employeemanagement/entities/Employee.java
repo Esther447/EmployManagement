@@ -2,6 +2,7 @@ package com.example.employeemanagement.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -18,12 +19,16 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String name;
 
+    @NotBlank(message = "Position is required")
     private String position;
 
+    @NotBlank(message = "Department is required")
     private String department;
 
+    @NotNull(message = "Hire date is required")
     private LocalDate hireDate;
+
 }

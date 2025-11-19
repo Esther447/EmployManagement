@@ -36,6 +36,7 @@ public class UserService {
     }
 
     public AuthResponse authenticate(AuthRequest authRequest) {
+        // Authenticate the user
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authRequest.getUsername(),
@@ -43,16 +44,21 @@ public class UserService {
                 )
         );
 
+        // Set authentication in context
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        // Get UserDetails from authentication
         org.springframework.security.core.userdetails.User principal =
                 (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
 
+        // Load the user from the database
         User user = userRepository.findByUsername(principal.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        String jwt = jwtService.generateToken(user.getUsername());
+        // Generate JWT token using the new method
+        String jwt = jwtService.generateToken(principal, user.getRole().name());
 
         return new AuthResponse(jwt, "Bearer", user.getUsername(), user.getRole().name());
     }
+
 }

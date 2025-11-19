@@ -28,19 +28,21 @@ public class JwtService {
         return extractClaim(token, Claims::getSubject);
     }
 
+    // ⭐ NEW: Extract the role
+    public String extractRole(String token) {
+        return extractClaim(token, claims -> claims.get("role", String.class));
+    }
+
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(String username) {
-        return generateToken(new HashMap<>(), username);
-    }
 
-    public String generateToken(Map<String, Object> extraClaims, String username) {
+    public String generateToken(UserDetails userDetails, String role) {
         return Jwts.builder()
-                .setClaims(extraClaims)
-                .setSubject(username)
+                .setSubject(userDetails.getUsername())
+                .claim("role", role)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)

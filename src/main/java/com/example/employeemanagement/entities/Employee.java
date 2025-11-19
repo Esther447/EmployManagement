@@ -8,8 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,7 +18,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Name is required")
+    @NotBlank
     private String name;
 
     private String position;
@@ -27,8 +26,4 @@ public class Employee {
     private String department;
 
     private LocalDate hireDate;
-
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
 }

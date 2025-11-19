@@ -30,10 +30,15 @@ public class UserService {
         if (userRepository.existsByEmail(user.getEmail()))
             throw new RuntimeException("Email is already in use");
 
+        // force default role
+        user.setRole(Role.ROLE_USER);
+
+        // encode password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        if (user.getRole() == null) user.setRole(com.example.employeemanagement.entities.Role.ROLE_USER);
+
         return userRepository.save(user);
     }
+
 
     public AuthResponse authenticate(AuthRequest authRequest) {
         // Authenticate the user

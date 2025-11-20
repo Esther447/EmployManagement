@@ -40,4 +40,8 @@ public class EmployeeService {
         Employee existing = findById(id);
         employeeRepository.delete(existing);
     }
+
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
 }

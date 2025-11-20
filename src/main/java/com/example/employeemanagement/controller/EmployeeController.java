@@ -26,11 +26,10 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.create(employee));
     }
 
-    @Operation(summary = "Get all employees", description = "USER and ADMIN can view all employees")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping
-    public ResponseEntity<List<Employee>> all() {
-        return ResponseEntity.ok(employeeService.findAll());
+    @Operation(summary = "Get all employees", description = "Returns a list of all employees")
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        return ResponseEntity.ok(employeeService.getAllEmployees());
     }
 
     @Operation(summary = "Get an employee by ID", description = "USER and ADMIN can view a single employee")

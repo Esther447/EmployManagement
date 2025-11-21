@@ -1,10 +1,8 @@
 package com.example.employeemanagement.service;
 
-import com.example.employeemanagement.DTO.AuthRequest;
-import com.example.employeemanagement.DTO.AuthResponse;
+import com.example.employeemanagement.dto.AuthRequest;
+import com.example.employeemanagement.dto.AuthResponse;
 import com.example.employeemanagement.entities.User;
-import com.example.employeemanagement.repository.UserRepository;
-import com.example.employeemanagement.service.JwtService;
 import com.example.employeemanagement.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.*;

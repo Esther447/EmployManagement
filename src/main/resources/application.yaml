@@ -1,11 +1,14 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT}
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/employee_management
-    username: postgres
-    password: Gervais0790194121
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -19,8 +22,9 @@ spring:
 
 app:
   jwt:
-    secret: "c2VjdXJlLXNlY3JldC1rZXktdGhhdC1zaG91bGQtYmUtMzJieXRlcw=="
-    expiration: 86400000
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION}
+
 springdoc:
   api-docs:
     path: /api-docs

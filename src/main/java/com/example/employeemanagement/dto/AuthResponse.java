@@ -1,4 +1,4 @@
-package com.example.employeemanagement.DTO;
+package com.example.employeemanagement.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

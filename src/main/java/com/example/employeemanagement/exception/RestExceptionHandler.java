@@ -1,4 +1,4 @@
-package com.example.employeemanagement;
+package com.example.employeemanagement.exception;
 
 import org.springframework.http.*;
 import org.springframework.security.access.AccessDeniedException;

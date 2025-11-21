@@ -1,7 +1,7 @@
 package com.example.employeemanagement.controller;
 
-import com.example.employeemanagement.DTO.AuthRequest;
-import com.example.employeemanagement.DTO.AuthResponse;
+import com.example.employeemanagement.dto.AuthRequest;
+import com.example.employeemanagement.dto.AuthResponse;
 import com.example.employeemanagement.entities.User;
 import com.example.employeemanagement.service.UserService;
 import jakarta.validation.Valid;

@@ -35,4 +35,5 @@ build/
 application.yaml
 
 ### environment variable##
-.env*
+# .gitignore
+src/main/resources/.env

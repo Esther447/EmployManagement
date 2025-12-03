@@ -19,10 +19,10 @@ spring:
 
 app:
   jwt:
-    secret: c2VjdXJlLXNlY3JldC1rZXktdGhhdC1zaG91bGQtYmUtMzJieXRlcw==
+    secret: ${SECRET}
     expiration: 86400000
 
 admin:
-  username: admin
-  password: Admin1234@
-  email: admin@gmail.coma
+  username: ${ADMIN_USERNAME}
+  password: ${ADMIN_PASSWORD}
+  email: ${ADMIN_EMAIL}
